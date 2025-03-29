@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn with AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Learn anything with AI</h1>
+    <p class="subtext">Enter a topic below to generate a personalized course for it</p>
+
+    <div class="card">
+      <label for="topic">Course Topic</label>
+      <div class="input-wrapper">
+        <span class="icon">🔍</span>
+        <input type="text" id="topic" placeholder="e.g., Algebra, JavaScript, Photography" />
+      </div>
+
+      <label class="label">Difficulty Level</label>
+      <div class="level-buttons">
+        <button class="btn active">Beginner</button>
+        <button class="btn">Intermediate</button>
+        <button class="btn">Advanced</button>
+      </div>
+
+      <div class="checkbox-wrapper">
+        <input type="checkbox" id="tailor" />
+        <label for="tailor">Tell us more to tailor the course (optional)</label>
+        <span class="recommended">recommended</span>
+      </div>
+
+      <button class="generate-btn" disabled>
+        ✨ Generate Course
+      </button>
+    </div>
+    <div class="course-section">
+        <h2>Your Courses</h2>
+      
+        <div class="search-wrapper">
+          <input type="text" placeholder="🔍 Search your courses…" class="search-input" />
+        </div>
+      
+        <div class="course-card" *ngFor="let course of courses">
+          <div class="course-header">
+            <span class="badge">Beginner</span>
+            <span class="menu">⋮</span>
+          </div>
+          <h3 class="course-title">{{ course.title }}</h3>
+          <p class="lessons">📘 {{ course.lessons }} lessons</p>
+      
+          <div class="progress-wrapper">
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width.%]="course.progress"></div>
+            </div>
+            <span class="progress-text">{{ course.progress }}%</span>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+</body>
+</html>
